@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Звук по кліку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: grey;
+            padding: 2px;
+        }
+        button {
+            padding: 500px 900px;
+            font-size: 18px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Не вдалось відкрити</h1>
+    <button onclick="playSound()">Повторити спробу</button>
+
+    <!-- Аудіо-елемент (шлях до звуку вказуємо тут) -->
+    <audio id="myAudio" preload="auto">
+        <source src="D:\new_holder\chicken-jockey.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує аудіо.
+    </audio>
+
+    <script>
+        function playSound() {
+            const audio = document.getElementById("myAudio");
+            audio.play()
+                .catch(error => {
+                    alert("Дозвольте відтворення звуку або перевірте файл!");
+                    console.error("Помилка:", error);
+                });
+        }
+    </script>
+</body>
+</html>
